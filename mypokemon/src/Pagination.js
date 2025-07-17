@@ -5,7 +5,7 @@ function Pagination({goTonextPageUri, goToPrevPageUri}) {
     <div>
 
       {goToPrevPageUri && <button onClick={goToPrevPageUri}>previous</button> }  
-       {goTonextPageUri && <button onClick={goTonextPageUri}>Next</button>}  
+       {goTonextPageUri&&<button onClick={goTonextPageUri}>Next</button>}  
       
     </div>
   )
