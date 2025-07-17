@@ -12,12 +12,26 @@ function App() {
 
 useEffect(()=>{
   setloading(true);
-  axios.get(currentPage).then(res =>{ 
+  let Cancel
+  axios.get(currentPage,{
+    cancelToken: new axios.CancelToken(c => Cancel = c)
+  }).then(res =>{ 
   setloading(false)
   setNextPage(res.data.next)
   setprevPage(res.data.previous)
   setPokem(res.data.results)
 })
+.catch(error => {
+      if (axios.isCancel(error)) {
+        console.log('Request canceled:', error.message);
+      } else {
+        console.error(error);
+      }
+    });
+
+  // return () => {
+  //   if (Cancel) Cancel('Cleanup: request canceled');
+  // };
 },[currentPage])
 
  if(loading) return(<div>loadding...</div>)
