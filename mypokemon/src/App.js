@@ -6,13 +6,13 @@ function App() {
   const [pokemon, setPokem] = useState([])
   const [currentPage, setCurrentPage]= useState("https://pokeapi.co/api/v2/pokemon")
   const [nextPage, setNextPage] = useState()
-   const [prevPage, setprevPage] = useState()
-   const [loading, setloading]=useState(true)
+  const [prevPage, setprevPage] = useState()
+  const [loading, setloading]=useState(true)
 
 
 useEffect(()=>{
- setloading(true);
- axios.get(currentPage).then(res =>{ 
+  setloading(true);
+  axios.get(currentPage).then(res =>{ 
   setloading(false)
   setNextPage(res.data.next)
   setprevPage(res.data.previous)
