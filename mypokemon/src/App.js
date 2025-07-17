@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import Pokemonlis from './Pokemonlis';
+import Pagination from './Pagination';
 import axios from 'axios'
 function App() {
 
@@ -21,6 +22,9 @@ useEffect(()=>{
   setprevPage(res.data.previous)
   setPokem(res.data.results)
 })
+
+
+
 .catch(error => {
       if (axios.isCancel(error)) {
         console.log('Request canceled:', error.message);
@@ -33,10 +37,26 @@ useEffect(()=>{
     if (Cancel) Cancel('Cleanup: request canceled');
   };
 },[currentPage])
+console.log(nextPage)
+function goToNextPageUrl(){
+  setCurrentPage(nextPage)
+}
+function goToPrevPageUrl(){
+  setCurrentPage(prevPage)
+}
 
  if(loading) return(<div>loadding...</div>)
   return (
-  <Pokemonlis data={pokemon}/>
+    <>
+     <Pokemonlis data={pokemon}/>
+    <Pagination 
+    goTonextPageUri ={nextPage? goToNextPageUrl:null}
+    goToPrevPageUri ={prevPage? goToPrevPageUrl:null}
+    
+    />
+    </>
+ 
+  
   );
 }
 export default App;
