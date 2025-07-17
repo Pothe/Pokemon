@@ -13,9 +13,9 @@ function App() {
 useEffect(()=>{
  setloading(true);
  axios.get(currentPage).then(res =>{ 
-  setloading(false);
-  setNextPage(res.data.next);
-  setprevPage(res.data.previous);
+  setloading(false)
+  setNextPage(res.data.next)
+  setprevPage(res.data.previous)
   setPokem(res.data.results)
 })
 },[currentPage])
