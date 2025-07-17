@@ -29,9 +29,9 @@ useEffect(()=>{
       }
     });
 
-  // return () => {
-  //   if (Cancel) Cancel('Cleanup: request canceled');
-  // };
+  return () => {
+    if (Cancel) Cancel('Cleanup: request canceled');
+  };
 },[currentPage])
 
  if(loading) return(<div>loadding...</div>)
