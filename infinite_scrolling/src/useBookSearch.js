@@ -5,12 +5,11 @@ export default function useBookSearch({query, pageNumber}) {
     useEffect(()=>{
         axios({
             method:"GET",
-            url:"",
-            params:{q: query, page: pageNumber}
-        })
-    },[query, pageNumber])
+            URL:"http://openlibrary.org/search.json",
+            params:{q:query, page:pageNumber}
+        },[query, pageNumber])
+    })
   return
 }
 
 
-http://openlibrary.org/search.json
