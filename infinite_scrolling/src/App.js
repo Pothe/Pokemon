@@ -16,11 +16,11 @@ function App() {
   return (
     <>
     <input type='text' value={query} onChange={Handlesearch} />
-    <div>title</div>
-     <div>title</div>
-      <div>title</div>
-       <div>title</div>
-        <div>loading.....</div>
+    {books.map(book=>{
+      return <div key={book}>{book}</div>
+    })}
+    {laoding && <div>laoding.........</div>}
+     
     </>
   )
 }

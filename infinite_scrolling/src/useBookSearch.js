@@ -28,7 +28,7 @@ axios({
 // promise data
 .then(res=>{
     setbooks(prevBooks =>{
-      return [...new Set([...prevBooks, res.data.docs.map(b=>b.title)])]
+      return [...new Set([...prevBooks,...res.data.docs.map(b=>b.title,)])]
     })
   sethasmore(res.data.docs.length>0)
   setloading(false)
