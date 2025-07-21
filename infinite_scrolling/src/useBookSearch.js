@@ -1,8 +1,11 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import axios from 'axios';
 
 export default function useBookSearch({ query, pageNumber }) { 
+
+    const [laoding, setloading] = useState(true)
   useEffect(() => {        
+    setloading(true)
 //     axios.get("http://openlibrary.org/search.json", {
 //     params: { q: query, page: pageNumber }  })
 //      .then(res => {
@@ -16,14 +19,14 @@ axios({
     // clear previous data 
     cancelToken: new axios.CancelToken(c=> Cancel =c)
 })
+
 // promise data
 .then(res=>{
     console.log(res.data)
 })
 // to check error
 .catch(error => {
-      if (axios.isCancel(error)) {
-      
+      if (axios.isCancel(error)) {      
         console.log('Request canceled:', error.message);
       } else {
         console.error(error);
