@@ -4,8 +4,13 @@ import axios from 'axios';
 export default function useBookSearch({ query, pageNumber }) { 
 
     const [laoding, setloading] = useState(true)
-  useEffect(() => {        
-    setloading(true)
+    const [ error ,seterror] = useState(false)
+    const [books, setbooks] = useState([])
+    const [hasmore, sethasmore] = useState(false)
+  useEffect(() => {    
+    setloading(true)  
+    seterror(false) 
+  
 //     axios.get("http://openlibrary.org/search.json", {
 //     params: { q: query, page: pageNumber }  })
 //      .then(res => {
@@ -22,12 +27,17 @@ axios({
 
 // promise data
 .then(res=>{
-    console.log(res.data)
+    setbooks(prevBooks =>{
+      return [...new Set([...prevBooks, res.data.docs.map(b=>b.title)])]
+    })
+  sethasmore(res.data.docs.length>0)
+  setloading(false)
 })
 // to check error
 .catch(error => {
-      if (axios.isCancel(error)) {      
-        console.log('Request canceled:', error.message);
+      if (axios.isCancel(error)) {    
+        return seterror(true)  
+        // console.log('Request canceled:', error.message);
       } else {
         console.error(error);
       }
@@ -41,5 +51,5 @@ axios({
 
   },[query, pageNumber]);
 
-  return null
+  return {laoding,books, hasmore,error}
 }
