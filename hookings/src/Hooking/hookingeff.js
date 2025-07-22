@@ -3,6 +3,7 @@ import React,{useState ,useEffect} from 'react'
 function Hookingeff() {
   const [resouretype, setresourcetype]= useState("posts")
   const [iterm ,setiterm ] = useState([])
+  const [datasource,setdatasource] = useState(true)
 
  useEffect(()=>{
   fetch(`https://jsonplaceholder.typicode.com/${resouretype}`)
@@ -11,16 +12,17 @@ function Hookingeff() {
  },[resouretype])
 
 
+
   return (
     <div>
      <button onClick={()=>setresourcetype("posts")}>Post</button> 
      <button onClick={()=>setresourcetype("users")}>users</button> 
      <button onClick={()=>setresourcetype("comments")}>Comment</button>
-     <div>{resouretype}</div>
+     <h1>{resouretype}</h1>
      {iterm.map(iterm => {
       return(
        <div key={iterm.id}>
-        <div key={iterm.id}> {iterm.name} </div>
+        <div key={iterm.id}> {datasource? iterm.title : iterm.name} </div>
        </div>
         
       ) 
