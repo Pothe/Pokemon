@@ -32,6 +32,7 @@ axios({
     })
   sethasmore(res.data.docs.length>0)
   setloading(false)
+
 })
 // to check error
 .catch(error => {
