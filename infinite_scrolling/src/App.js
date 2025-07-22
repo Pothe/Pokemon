@@ -20,6 +20,7 @@ function App() {
       return <div key={book}>{book}</div>
     })}
     {laoding && <div>laoding.........</div>}
+    {error && <div>error ......</div>}
      
     </>
   )
