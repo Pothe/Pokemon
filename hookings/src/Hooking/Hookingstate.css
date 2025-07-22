@@ -1,0 +1,18 @@
+.blue{
+    background-color: blue;
+    width: 200px;
+    height: 100px;
+    border-radius: 50px;
+}
+.red{
+     width: 200px;
+    height: 100px;
+       border-radius: 50px;
+    background-color: rgb(255, 0, 98);
+}
+.yello{
+     width: 200px;
+     height: 100px;
+       border-radius: 50px;
+    background-color: rgb(255, 187, 0);
+}
