@@ -3,16 +3,16 @@ import React, { useState, useMemo, useEffect } from 'react'
 export default function Memo() {
   const [number, setNumber] = useState(1)
   const [dark, setDark] = useState(false)
-
+ const doubleNumber = useMemo(() => {
+    return slowFunction(number)
+  }, [number])
   const themeStyles = useMemo(()=>{
     return{
       backgroundColor: dark ? 'black' : 'white',
       color: dark ? 'white' : 'black',
     }}, [dark] )
 
-  const doubleNumber = useMemo(() => {
-    return slowFunction(number)
-  }, [number])
+ 
 
   useEffect(() => {
     console.log("theme changed")
