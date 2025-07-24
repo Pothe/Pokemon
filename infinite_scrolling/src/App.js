@@ -20,7 +20,11 @@ function App() {
       return <div key={book}>{book}</div>
     })}
     {laoding && <div>laoding.........</div>}
+<<<<<<< Updated upstream
 
+=======
+     {error && <div>error.........</div>}
+>>>>>>> Stashed changes
      
     </>
   )
