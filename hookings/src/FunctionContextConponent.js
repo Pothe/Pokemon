@@ -6,6 +6,7 @@ function FunctionContextConponent() {
 //  const darkTheme = useContext(ThemeContext) 
    const darkTheme = useTheme()
    const ToggleClick = useThemeupdate()
+   
    const themeStyle ={
     backgroundColor : darkTheme? "#000000ff" : '#ffffffff',
     color: darkTheme? '#ffffffff': '#000000',
