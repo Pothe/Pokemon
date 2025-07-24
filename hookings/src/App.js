@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import FunctionContextConponent from './FunctionContextConponent';
-export const ThemeContext = React.createContext()
+import { ThemeProdiver } from './Hooking/ThemeContext';
+//  export const ThemeContext = React.createContext();
+
 // import Hookingstate from './Hooking/Hookingstate';
 // import Hooking from './Hooking/hookingeff';
 // import JobBoard from './Hooking/Jobs';
@@ -9,10 +11,11 @@ export const ThemeContext = React.createContext()
 
 
 function App() {
-  const [darkthem, setdarkthem] = useState('')
-  function ToggleClick(){
-    setdarkthem(prev=>!prev)
-  }
+  // const [darkthem, setdarkthem] = useState(false)
+  // function ToggleClick(){
+  //   setdarkthem(prev=>!prev)
+  //   console.log("clicked")
+  // }
  
   return (
     <>
@@ -20,12 +23,12 @@ function App() {
     <JobBoard/>
     <Memo/> */}
     {/* <Hookingstate/> */}
-    <ThemeContext.Provider value={darkthem}>
-      <button onClick={ToggleClick} >Toogle</button>
+   {/* <ThemeContext.Provider value={darkthem}> */}
+   <ThemeProdiver>   
      <FunctionContextConponent/>
-    </ThemeContext.Provider>
+    </ThemeProdiver>
+    {/* </ThemeContext.Provider> */}
     </>
-
 
 
   )
