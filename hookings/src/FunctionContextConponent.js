@@ -5,6 +5,7 @@ import { useTheme, useThemeupdate } from './Hooking/ThemeContext'
 function FunctionContextConponent() {
 //  const darkTheme = useContext(ThemeContext) 
    const darkTheme = useTheme()
+   
    const ToggleClick = useThemeupdate()
    
    const themeStyle ={

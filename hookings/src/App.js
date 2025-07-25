@@ -2,33 +2,42 @@ import React from 'react';
 import './App.css';
 import FunctionContextConponent from './FunctionContextConponent';
 import { ThemeProdiver } from './Hooking/ThemeContext';
-//  export const ThemeContext = React.createContext();
+import { CanvasDrawing } from './Ref';
+import { PreviousValueTracker } from './Ref';
 
+import Ref from './Ref';
+// export const ThemeContext = React.createContext()
 // import Hookingstate from './Hooking/Hookingstate';
 // import Hooking from './Hooking/hookingeff';
 // import JobBoard from './Hooking/Jobs';
 // import Memo from './Hooking/memo';
 
-
 function App() {
-  // const [darkthem, setdarkthem] = useState(false)
+  // const [darkthem, setdarkthem] = useState('')
+
   // function ToggleClick(){
   //   setdarkthem(prev=>!prev)
-  //   console.log("clicked")
   // }
  
   return (
     <>
-    {/* <Hooking/>
+    {/* <Hooking/> 
     <JobBoard/>
     <Memo/> */}
     {/* <Hookingstate/> */}
-   {/* <ThemeContext.Provider value={darkthem}> */}
-   <ThemeProdiver>   
+
+   
+    <ThemeProdiver>   
      <FunctionContextConponent/>
     </ThemeProdiver>
-    {/* </ThemeContext.Provider> */}
+
+     <hr/>
+     <CanvasDrawing/>
+     <PreviousValueTracker/>
+     <Ref/> 
+    
     </>
+
 
 
   )

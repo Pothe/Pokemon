@@ -10,9 +10,11 @@ export function useThemeupdate (){
 
 export function ThemeProdiver({children}){
     const [darkthem, setdarkthem]= useState(true)
+
     function toggleTheme(){
         setdarkthem(prev=>!prev)
     }
+    
     return(
         <ThemeContext.Provider value={darkthem}>
             <ThemeUpdate.Provider value={toggleTheme}>
